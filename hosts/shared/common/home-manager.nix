@@ -15,9 +15,11 @@
     };
     users = let
       userFiles = map (user: {
-        name = user;
-        value = import ../../../homes/shared/users/${user};
-      }) (lib.attrNames (builtins.readDir ../../../homes/shared/users));
+        name =
+          lib.strings.removeSuffix ".nix"
+          user;
+        value = import ../../../homes/users/${user};
+      }) (lib.attrNames (builtins.readDir ../../../homes/users));
     in
       builtins.listToAttrs userFiles;
   };

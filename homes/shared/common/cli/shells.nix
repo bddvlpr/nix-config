@@ -33,6 +33,11 @@
       ls = "${pkgs.eza}/bin/eza --icons -F -H --group-directories-first --git";
       cat = "${pkgs.bat}/bin/bat -pp --theme=base16";
     };
+
+    shellInit = ''
+      set fish_greeting
+      export TERM=xterm-256color
+    '';
   };
 
   programs.starship = {

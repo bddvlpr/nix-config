@@ -1,7 +1,7 @@
 {outputs, ...}: {
   imports =
     [
-      ../../common
+      ../shared/common
     ]
     ++ (builtins.attrValues outputs.homeManagerModules);
 
