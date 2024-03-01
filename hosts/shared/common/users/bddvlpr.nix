@@ -15,16 +15,15 @@
       ];
     };
   in
-    if !metadata.isDarwin
-    then
-      {
+    (
+      if metadata.isNixOS
+      then {
         isNormalUser = true;
         extraGroups = ["wheel"];
       }
-      // defaults
-    else
-      {
+      else {
         home = "/Users/bddvlpr";
       }
-      // defaults;
+    )
+    // defaults;
 }
