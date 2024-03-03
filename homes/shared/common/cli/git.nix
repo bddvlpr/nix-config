@@ -23,7 +23,7 @@ in {
         init.defaultBranch = "main";
         push.autoSetupRemote = true;
       }
-      (lib.mkIf metadata.isDarwin {
+      (lib.mkIf metadata.isNixOS {
         credential.helper = "${config.programs.git.package}/bin/git-credential-libsecret";
       })
     ];
