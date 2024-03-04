@@ -3,6 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    impermanence.url = "github:nix-community/impermanence";
+
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-darwin.url = "github:lnl7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
@@ -59,7 +63,9 @@
     darwinModules = import ./modules/darwin;
     homeManagerModules = import ./modules/home-manager;
 
-    nixosConfigurations = {};
+    nixosConfigurations = {
+      dissension = mkHost (mkMetadata "dissension" "nixos" {impermanent = true;});
+    };
 
     darwinConfigurations = {
       lavender = mkHost (mkMetadata "lavender" "darwin" {});
