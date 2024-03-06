@@ -20,11 +20,13 @@
       then {
         isNormalUser = true;
         extraGroups = ["wheel"];
-        password = "test123";
+        hashedPassword = "$y$j9T$Zz5fAw7uCJYjrO1uGgoOc.$zExQOgZs2oA4cM7UYJpnaAA6W.sXFA9sAw4fiiE/fa6";
       }
-      else {
+      else if metadata.isDarwin
+      then {
         home = "/Users/bddvlpr";
       }
+      else {}
     )
     // defaults;
 }

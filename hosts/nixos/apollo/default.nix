@@ -5,7 +5,7 @@
   ...
 }: {
   imports = [
-    (outputs.nixosModules.disko.luks-btrfs-single {
+    (outputs.nixosModules.disko.btrfs-single {
       inherit lib metadata;
       device = "/dev/vda";
     })

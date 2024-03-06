@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    hardware.url = "github:nixos/nixos-hardware";
     impermanence.url = "github:nix-community/impermanence";
 
     disko.url = "github:nix-community/disko";
@@ -69,7 +70,7 @@
     homeManagerModules = import ./modules/home-manager;
 
     nixosConfigurations = {
-      dissension = mkHost (mkMetadata "dissension" "nixos" {impermanent = true;});
+      dissension = mkHost (mkMetadata "apollo" "nixos" {impermanent = true;});
     };
 
     darwinConfigurations = {
