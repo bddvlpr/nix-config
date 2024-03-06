@@ -70,7 +70,7 @@
     homeManagerModules = import ./modules/home-manager;
 
     nixosConfigurations = {
-      dissension = mkHost (mkMetadata "apollo" "nixos" {impermanent = true;});
+      apollo = mkHost (mkMetadata "apollo" "nixos" {impermanent = true;});
     };
 
     darwinConfigurations = {
