@@ -8,7 +8,7 @@
   ];
 
   environment.persistence."/persist" = {
-    enable = metadata.isImpermanent;
+    enable = metadata.hasImpermanence;
     directories = [
       "/etc/nixos"
       "/etc/NetworkManager"

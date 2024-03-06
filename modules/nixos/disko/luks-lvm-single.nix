@@ -56,7 +56,7 @@
                 type = "filesystem";
                 format = "ext4";
                 mountpoint =
-                  if metadata.isImpermanent
+                  if metadata.hasImpermanence
                   then "/nix"
                   else "/";
                 mountOptions = ["defaults"];
@@ -66,7 +66,7 @@
         };
       };
     }
-    (lib.mkIf metadata.isImpermanent
+    (lib.mkIf metadata.hasImpermanence
       {
         nodev = {
           "/" = {
@@ -77,5 +77,5 @@
       })
   ];
 
-  fileSystems = lib.mkIf metadata.isImpermanent {"/nix".neededForBoot = true;};
+  fileSystems = lib.mkIf metadata.hasImpermanence {"/nix".neededForBoot = true;};
 }

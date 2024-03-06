@@ -47,7 +47,7 @@
                         };
                       }
                       (
-                        if metadata.isImpermanent
+                        if metadata.hasImpermanence
                         then {
                           "/persist" = {
                             mountpoint = "/persist";
@@ -70,7 +70,7 @@
         };
       };
     }
-    (lib.mkIf metadata.isImpermanent
+    (lib.mkIf metadata.hasImpermanence
       {
         nodev = {
           "/" = {
@@ -81,7 +81,7 @@
       })
   ];
 
-  fileSystems = lib.mkIf metadata.isImpermanent {
+  fileSystems = lib.mkIf metadata.hasImpermanence {
     "/nix".neededForBoot = true;
     "/persist".neededForBoot = true;
   };

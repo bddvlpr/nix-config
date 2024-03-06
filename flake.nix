@@ -11,6 +11,9 @@
     nix-darwin.url = "github:lnl7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
+    sops.url = "github:mic92/sops-nix";
+    sops.inputs.nixpkgs.follows = "nixpkgs";
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -39,7 +42,9 @@
       inherit host type;
       isNixOS = type == "nixos";
       isDarwin = type == "darwin";
-      isImpermanent = optionals.impermanent or false;
+
+      hasImpermanence = optionals.impermanent or false;
+      hasSops = optionals.sops or true;
     };
     mkHost = metadata:
       (
@@ -70,5 +75,7 @@
     darwinConfigurations = {
       lavender = mkHost (mkMetadata "lavender" "darwin" {});
     };
+
+    devShell = forSystems (system: (mkPackages system).callPackage ./shell.nix {inherit inputs outputs;});
   };
 }
