@@ -7,7 +7,7 @@
     inputs.impermanence.nixosModules.impermanence
   ];
 
-  environment.persistence."/nix/persist" = {
+  environment.persistence."/persist" = {
     enable = metadata.isImpermanent;
     directories = [
       "/etc/nixos"

@@ -20,6 +20,7 @@
       then {
         isNormalUser = true;
         extraGroups = ["wheel"];
+        password = "test123";
       }
       else {
         home = "/Users/bddvlpr";
