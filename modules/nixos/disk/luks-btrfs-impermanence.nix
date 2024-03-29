@@ -21,7 +21,7 @@ in {
     != null) {
     disko.devices = {
       disk = {
-        single = {
+        system = {
           type = "disk";
           device = cfg.device;
           content = {

@@ -9,7 +9,7 @@ in {
   options.desktop.wayland = {
     enable = mkOption {
       type = types.bool;
-      default = true;
+      default = false;
       example = true;
       description = "Enable Hyprland desktop environment";
     };

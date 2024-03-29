@@ -5,7 +5,9 @@
     ];
   };
 
-  user = {
-    bddvlpr = ./user/bddvlpr.nix;
+  misc = {
+    imports = [
+      ./misc/nixconfig.nix
+    ];
   };
 }

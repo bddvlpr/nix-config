@@ -16,6 +16,7 @@
   outputs = {flake-parts, ...} @ inputs:
     flake-parts.lib.mkFlake {inherit inputs;} {
       imports = [
+        ./homes
         ./modules
         ./nixos
       ];

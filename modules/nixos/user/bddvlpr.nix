@@ -16,7 +16,7 @@ with lib; {
     (mkIf
       config.misc.home-manager.enable
       {
-        home-manager.users.bddvlpr = import outputs.homeManagerModules.user.bddvlpr;
+        home-manager.users.bddvlpr = import outputs.homeModules.bddvlpr;
       })
   ];
 }
